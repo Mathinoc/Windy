@@ -1,4 +1,3 @@
-//import React, { useEffect, useState } from 'react';
 import { Bar } from "react-chartjs-2";
 import { Chart, registerables } from 'chart.js';
 import ChartDataLabels from 'chartjs-plugin-datalabels';
@@ -14,7 +13,6 @@ export default function WindChart({ windData }: { windData: { timestamp: string,
   const data = {
     labels: graphLabel,
     datasets: [{
-      // label: "#",
       data: windSpeed,
       backgroundColor: barColors,
       borderWidth: 1,

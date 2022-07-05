@@ -2,4 +2,31 @@
   max-width: var(--max-width);
   margin: 0 auto;
   text-align: center;
+  padding-top: 20px;
+  position: relative;
+
+  a {
+    background-color: transparent;
+    border: none;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    position: absolute;
+    top: 25px;
+    text-decoration: none;
+    color: var(--font-color-main);
+
+    &:hover {
+      cursor: pointer;
+    }
+
+    img {
+      transform: rotate(180deg);
+      height: 20px;
+    }
+  }
+
+  h2 {
+    margin: 0;
+  }
 }

@@ -1,6 +1,6 @@
 export default function colorScale(arr: number[]): string[] {
   const rule = [
-    { threshold: 2, color: "transparent" },
+    { threshold: 2, color: "#FFFFFF" },
     { threshold: 4, color: "#CBCBFF" },
     { threshold: 6, color: "#D0FCFA" },
     { threshold: 8, color: "#8AF8F4" },
