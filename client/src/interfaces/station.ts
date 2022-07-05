@@ -20,7 +20,7 @@ export interface stationDetail {
     };
   };
   readings: {
-    timestamp: Date;
+    timestamp: string;
     force: number;
     dir: number;
   }[];

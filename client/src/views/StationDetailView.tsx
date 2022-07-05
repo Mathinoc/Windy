@@ -1,7 +1,9 @@
-import React from 'react'
+import StationDetail from "../components/StationDetail";
 
 export default function StationDetailView() {
   return (
-    <div>StationDetail</div>
+    <>
+      <StationDetail />
+    </>
   )
 }
