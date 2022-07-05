@@ -1,0 +1,25 @@
+.StationPreview {
+  position: fixed;
+  bottom: 0;
+  margin: 0px auto 20px auto;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  text-decoration: none;
+  color: var(--font-color-main);
+
+  p {
+    background-color: aliceblue;
+    border-radius: var(--main-radius);
+    margin: 0;
+    padding: 20px 30px;
+    box-shadow: rgba(100, 100, 111, 0.1) 0px 7px 29px 0px;
+    transition: box-shadow 0.1s linear;
+
+    &:hover {
+      cursor: pointer;
+      box-shadow: rgba(100, 100, 111, 0.3) 0px 7px 29px 0px;
+    }
+  }
+}

@@ -1,6 +1,7 @@
 import React, {useEffect, useRef} from 'react';
 import { stationList } from '../interfaces/station';
 import '../styles/MapStations.scss';
+import pin from '../assets/pin.png';
 
 import ReactDOM from 'react-dom';
 import * as L from 'leaflet';
@@ -41,7 +42,7 @@ export default function MapStations({
     clusterLayer.current = L.markerClusterGroup();
 
     stations.forEach((station) => {
-      let oneMarker = L.circleMarker(L.latLng(station.loc.lat, station.loc.long), { radius: 10, color: 'green' });
+      let oneMarker = L.marker(L.latLng(station.loc.lat, station.loc.long)).setIcon(L.icon({iconUrl: pin, iconSize: [25,25], iconAnchor: [12.5,25]}));
       //@ts-ignore
       oneMarker.options['id'] = station.id;
       oneMarker.addTo(clusterLayer.current!);
@@ -49,9 +50,9 @@ export default function MapStations({
         console.log('clickkkk')
         let clickedStation = stations.find((elem) => elem.id === station.id);
         setSelectedStation(clickedStation);
-        if (clickedStation?.id === station.id) {
-          oneMarker.setStyle({ color: '#357960' });
-        }
+        // if (clickedStation?.id === station.id) {
+        //   oneMarker.setStyle({ color: '#357960' });
+        // }
       });
     });
 
@@ -65,7 +66,7 @@ export default function MapStations({
     }
     map.current = L.map(mapNode).setZoom(8).setView(L.latLng(position.lat, position.long));
 
-    L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', { maxZoom: 15 }).addTo(
+    L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', { maxZoom: 15, attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>' }).addTo(
       map.current
     );
   }, [position.lat, position.long]);

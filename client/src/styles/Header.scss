@@ -5,6 +5,8 @@
   gap: 20px;
   padding-left: 20px;
   box-shadow: 0px 0px 10px 1px rgba(8, 1, 1, 0.199);
+  position: relative;
+  z-index: 1;
   img {
     height: 60%;
   }

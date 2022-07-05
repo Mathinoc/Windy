@@ -2,7 +2,8 @@ import { useState, useEffect } from 'react';
 import { stationList } from '../interfaces/station';
 import { getAllStations } from '../services/stationData';
 import MapStations from './MapStations';
-
+import StationPreview from './StationPreview';
+import '../styles/HomeComponent.scss';
 
 
 export default function HomeComponent() {
@@ -17,16 +18,23 @@ export default function HomeComponent() {
       setStations(data)
     }
     fetchData()
-  }, [])
+  }, []);
+
+  useEffect(()=>{
+    console.log(selectedStation)
+  },[selectedStation])
 
   return (
-    <section>
+    <section className="HomeComponent">
       <MapStations
       stations={stations}
       position={position}
       selectedStation={selectedStation}
       setSelectedStation={setSelectedStation}
       />
+      {selectedStation &&
+      <StationPreview selectedStation={selectedStation} />
+      }
     </section>
   )
 }
