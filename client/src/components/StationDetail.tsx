@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
 import { stationDetail } from '../interfaces/station';
 import { getStationDetail } from '../services/stationData';
+import FullScreenLoadingIndicator from './FullScreenLoadingIndicator';
 import WindChart from './WindChart';
 import arrow from '../assets/right-arrow.png';
 import '../styles/StationDetail.scss';
@@ -21,7 +22,7 @@ export default function StationDetail() {
   }, []);
 
   if (isLoading) {
-    return <div>Loading</div>
+    return <FullScreenLoadingIndicator />
   } else {
     return (
       <div className="StationDetail" >

@@ -50,9 +50,6 @@ export default function MapStations({
         console.log('clickkkk')
         let clickedStation = stations.find((elem) => elem.id === station.id);
         setSelectedStation(clickedStation);
-        // if (clickedStation?.id === station.id) {
-        //   oneMarker.setStyle({ color: '#357960' });
-        // }
       });
     });
 
