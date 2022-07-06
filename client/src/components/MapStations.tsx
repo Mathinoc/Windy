@@ -45,7 +45,6 @@ export default function MapStations({
       oneMarker.options['id'] = station.id;
       oneMarker.addTo(clusterLayer.current!);
       oneMarker.on('click', () => {
-        console.log('clickkkk')
         let clickedStation = stations.find((elem) => elem.id === station.id);
         setSelectedStation(clickedStation);
       });
