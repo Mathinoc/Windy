@@ -1,4 +1,4 @@
-import React, {useEffect, useRef} from 'react';
+import React, { useEffect, useRef } from 'react';
 import { stationList } from '../interfaces/station';
 import '../styles/MapStations.scss';
 import pin from '../assets/pin.png';
@@ -14,12 +14,10 @@ import 'leaflet.markercluster/dist/MarkerCluster.Default.css';
 export default function MapStations({
   stations,
   position,
-  selectedStation,
   setSelectedStation
 }: {
   stations: stationList[],
   position: { lat: number, long: number },
-  selectedStation: stationList | undefined,
   setSelectedStation: React.Dispatch<React.SetStateAction<stationList | undefined>>
 }) {
 
@@ -42,7 +40,7 @@ export default function MapStations({
     clusterLayer.current = L.markerClusterGroup();
 
     stations.forEach((station) => {
-      let oneMarker = L.marker(L.latLng(station.loc.lat, station.loc.long)).setIcon(L.icon({iconUrl: pin, iconSize: [25,25], iconAnchor: [12.5,25]}));
+      let oneMarker = L.marker(L.latLng(station.loc.lat, station.loc.long)).setIcon(L.icon({ iconUrl: pin, iconSize: [25, 25], iconAnchor: [12.5, 25] }));
       //@ts-ignore
       oneMarker.options['id'] = station.id;
       oneMarker.addTo(clusterLayer.current!);

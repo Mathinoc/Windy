@@ -2,8 +2,9 @@
   max-width: var(--max-width);
   margin: 0 auto;
   text-align: center;
-  padding-top: 20px;
+  padding-top: 60px;
   position: relative;
+
 
   a {
     background-color: transparent;
@@ -11,10 +12,9 @@
     display: flex;
     gap: 10px;
     align-items: center;
-    position: absolute;
-    top: 25px;
     text-decoration: none;
     color: var(--font-color-main);
+    margin-bottom: 10px;
 
     &:hover {
       cursor: pointer;
@@ -28,5 +28,8 @@
 
   h2 {
     margin: 0;
+  }
+  .StationDetail__bold{
+    font-weight: bold;
   }
 }

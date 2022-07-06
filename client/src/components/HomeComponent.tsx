@@ -9,8 +9,8 @@ import '../styles/HomeComponent.scss';
 export default function HomeComponent() {
 
   const [stations, setStations] = useState<stationList[]>([]);
-  const [position, setPosition] = useState<{ lat: number, long: number }>({ lat: 21.436120, long: -158.001074 });
   const [selectedStation, setSelectedStation] = useState<stationList | undefined>(undefined);
+  const defaultPosition = { lat: 21.436120, long: -158.001074 };
 
   useEffect(() => {
     async function fetchData() {
@@ -20,20 +20,19 @@ export default function HomeComponent() {
     fetchData()
   }, []);
 
-  useEffect(()=>{
+  useEffect(() => {
     console.log(selectedStation)
-  },[selectedStation])
+  }, [selectedStation])
 
   return (
     <section className="HomeComponent">
       <MapStations
-      stations={stations}
-      position={position}
-      selectedStation={selectedStation}
-      setSelectedStation={setSelectedStation}
+        stations={stations}
+        position={defaultPosition}
+        setSelectedStation={setSelectedStation}
       />
       {selectedStation &&
-      <StationPreview selectedStation={selectedStation} />
+        <StationPreview selectedStation={selectedStation} />
       }
     </section>
   )

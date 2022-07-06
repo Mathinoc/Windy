@@ -3,18 +3,19 @@ import { Chart as ChartJS, registerables } from 'chart.js';
 import ChartDataLabels from 'chartjs-plugin-datalabels';
 import formatDate from '../utils/formatDate';
 import colorScale from '../utils/colorScale';
-import arrow from '../assets/navigation-color.png';
+import mapArrow from '../assets/navigation-color.png';
+import round1Decimal from '../utils/round1decimal';
 ChartJS.register(...registerables);
 
 export default function WindChart({ windData }: { windData: { timestamp: string, force: number, dir: number }[] }) {
 
   const graphLabel = windData.map(el => formatDate(el.timestamp));
-  const windSpeed = windData.map(el => el.force);
+  const windSpeed = windData.map(el => round1Decimal(el.force));
   const barColors = colorScale(windSpeed);
   const arrowPosition = [-5, -5, -5, -5, -5, -5, -5];
   const rotation = windData.map(el => el.dir);
   const imageArrow = new Image();
-  imageArrow.src = arrow;
+  imageArrow.src = mapArrow;
 
   const data = {
     labels: graphLabel,
@@ -40,7 +41,7 @@ export default function WindChart({ windData }: { windData: { timestamp: string,
         rotation: rotation,
         datalabels: {
           anchor: "center" as "center",
-          color: 'rgb(0,0,255,0)',
+          color: 'rgb(0,0,0,0)',
         },
       }
     ]
