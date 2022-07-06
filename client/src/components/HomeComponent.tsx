@@ -20,10 +20,6 @@ export default function HomeComponent() {
     fetchData()
   }, []);
 
-  useEffect(() => {
-    console.log(selectedStation)
-  }, [selectedStation])
-
   return (
     <section className="HomeComponent">
       <MapStations
